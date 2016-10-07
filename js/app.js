@@ -41,7 +41,6 @@ window.addEventListener("load", function (){
 
 		texto.addEventListener("click",function(){
 			aparecePub();
-
 		});
 
 		cita.addEventListener("click",function(){
@@ -63,7 +62,7 @@ window.addEventListener("load", function (){
 
 		publicar.addEventListener("click",function(){
 			publicacion.classList.add("ocultar");
-			onClicKPublicar();
+			imprimirPost();
 		})
 	function crearPub(){
 		publicacion.setAttribute("style", "");
@@ -99,28 +98,41 @@ window.addEventListener("load", function (){
 		var salida = crearPub();
 		agregar(salida);
 	}
-
-	function onClicKPublicar(){
-		var text = getTextaTreaValue();
-		var newTask	= createTask(text);
-		addTaskToContainer(newTask);
-
-
-	}
-	function getTextareaValue(){
-		var textArea = document.getElementById("textarea");
-		return textArea.value;
-	}
-	function createTask(text){
-		var newTask = document.createElement("div");
-		newTask.innerHTML = text;
-		return newTask;
-	}
-
-	function addTaskToContainer(task){
-		var addPost = document.getElementById("imprimirPost");
-		addPost.insertBefore(task,addPost.children[0]);
-		// addPost.appendChild(task);
-	};
 });	
 
+	function imprimirPost() {
+		var imprimirPost = document.getElementById("imprimirPost");
+		imprimirPost.classList.add("caja"); 
+	}
+
+	// function main(){
+	// 	var addTaskButton = document.getElementById("add-task");
+	// 	addTaskButton.addEventListener("click", onClickAddTask);		
+	// }
+
+	// function onClicpublicar(e){
+	// 	e.preventDefault();
+
+	// 	var text = getTextareaValue();
+	// 	if(text != "" && text.length <= 140){
+	// 	var newTask	= createTask(text);
+	// 	addTaskToContainer(newTask);
+	// 	} else {
+	// 	alert(" Ingresa texto entre 0 y 140 caracteres");
+	// 	}
+	// }
+	// function getTextareaValue(){
+	// 	var textArea = document.getElementByClassName("textarea");
+	// 	return textarea.value;
+	// }
+	// function createTask(text){
+	// 	var newTask = document.createElement("div");
+	// 	newTask.innerHTML = text;
+	// 	return newTask;
+	// }
+
+	// function addTaskToContainer(task){
+	// 	var addContainer = document.getElementById("addContainer");
+	// 	// addContainer.insertBefore(task,addContainer.children[0]);
+	// 	addContainer.appendChild(task);
+	// };
