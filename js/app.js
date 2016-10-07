@@ -27,55 +27,45 @@ window.addEventListener("load", function (){
 		enlaces.insertBefore(titulo,enlaces.childNodes[0]);
 		var txt = document.createTextNode("Escoge tu tipo publicacion");
 		titulo.appendChild(txt);
-		
 		texto.setAttribute("src","imagenes/texto.png");
 		enlaces.insertBefore(texto,enlaces.childNodes[1]);
-
 		cita.setAttribute("src","imagenes/cita.png");
 		enlaces.appendChild(cita,enlaces.children[1]);
-
 		meme.setAttribute("src","imagenes/enlace.png");
 		enlaces.appendChild(meme,enlaces.childNodes[1]);
-
 		pastilla.setAttribute("src","imagenes/pastilla.png");
 		enlaces.appendChild(pastilla,enlaces.childNodes[1]);
 		enlaces.setAttribute("style","");
+		return enlaces;
+	};
 
 		texto.addEventListener("click",function(){
-			enlaces.style.display ="none"
 			aparecePub();
+
 		});
 
 		cita.addEventListener("click",function(){
-			enlaces.style.display ="none"
 			aparecePub();
 		});
 
 		meme.addEventListener("click",function(){
-			enlaces.style.display ="none"
 			aparecePub();
 		});
 
 		pastilla.addEventListener("click",function(){
-			enlaces.style.display ="none"
 			aparecePub()
 		});
-	
-		return enlaces;
-	}
-
 		cerrar.addEventListener("click", function(){
-			publicacion.style.display="none"
 			var tipo = crearEnlace();
 			agregarPub(tipo);
 			enlaces.setAttribute("style", "");
 		});
 
 		publicar.addEventListener("click",function(){
-
+			publicacion.classList.add("ocultar");
+			onClicKPublicar();
 		})
 	function crearPub(){
-		
 		publicacion.setAttribute("style", "");
 		publicacion.classList.add("publi");
 		
@@ -83,7 +73,6 @@ window.addEventListener("load", function (){
 		publicacion.appendChild(titulopub,publicacion.childNodes[0]);
 		
 		publicacion.appendChild(textArea,publicacion.childNodes[1]);
-		textArea.classList.add("textarea")
 		
 		cerrar.classList.add("waves-effect","waves-light","btn")
 		var txtcerrar = document.createTextNode("Cerrar");
@@ -95,16 +84,6 @@ window.addEventListener("load", function (){
 		publicar.appendChild(txtpublicar);
 		publicacion.appendChild(publicar, publicacion.childNodes[2]);
 		return publicacion;
-	}
-	function Post(titulo, horaPub) {
-		this.titulo = titulo;
-		this.horaPub = horaPub;
-		this.imprimir = function(){
-      		("Mi texto es ="+this.text+
-            ", publicado el "+this.horaPub+
-            ", titulo = "+this.titulo+
-            ", autor = "+this.autor);
-		}
 	}
 	function agregarPub(greek){
 		var agregarPub = document.getElementById("pub");
@@ -119,38 +98,29 @@ window.addEventListener("load", function (){
 	function aparecePub(aparece){
 		var salida = crearPub();
 		agregar(salida);
-		return salida;
 	}
+
+	function onClicKPublicar(){
+		var text = getTextaTreaValue();
+		var newTask	= createTask(text);
+		addTaskToContainer(newTask);
+
+
+	}
+	function getTextareaValue(){
+		var textArea = document.getElementById("textarea");
+		return textArea.value;
+	}
+	function createTask(text){
+		var newTask = document.createElement("div");
+		newTask.innerHTML = text;
+		return newTask;
+	}
+
+	function addTaskToContainer(task){
+		var addPost = document.getElementById("imprimirPost");
+		addPost.insertBefore(task,addPost.children[0]);
+		// addPost.appendChild(task);
+	};
 });	
 
-	// function main(){
-	// 	var addTaskButton = document.getElementById("add-task");
-	// 	addTaskButton.addEventListener("click", onClickAddTask);		
-	// }
-
-	// function onClicpublicar(e){
-	// 	e.preventDefault();
-
-	// 	var text = getTextareaValue();
-	// 	if(text != "" && text.length <= 140){
-	// 	var newTask	= createTask(text);
-	// 	addTaskToContainer(newTask);
-	// 	} else {
-	// 	alert(" Ingresa texto entre 0 y 140 caracteres");
-	// 	}
-	// }
-	// function getTextareaValue(){
-	// 	var textArea = document.getElementByClassName("textarea");
-	// 	return textarea.value;
-	// }
-	// function createTask(text){
-	// 	var newTask = document.createElement("div");
-	// 	newTask.innerHTML = text;
-	// 	return newTask;
-	// }
-
-	// function addTaskToContainer(task){
-	// 	var addContainer = document.getElementById("addContainer");
-	// 	// addContainer.insertBefore(task,addContainer.children[0]);
-	// 	addContainer.appendChild(task);
-	// };

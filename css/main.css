@@ -26,3 +26,9 @@ img{
 	height: 5rem;
 	cursor: pointer;
 }
+.caja {
+	background: #00796b;
+	color: white;
+	height: 10rem;
+	margin-top: 5%;
+}
