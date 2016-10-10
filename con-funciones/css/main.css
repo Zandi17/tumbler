@@ -1,0 +1,20 @@
+body {
+/* 	background-image: url(../imagenes/indie1.jpg); */
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: cover;
+	font-family: GillSans, Calibri, Trebuchet, sans-serif;
+	text-align: center;
+}
+
+#contenedor{
+	background-color: white;
+	border : red solid 2px;
+	height: 150px;
+	width: 500px;
+}
+
+.ocultar{
+	display: none;
+}
